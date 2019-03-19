@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "serve",
-    "deploy": "now --public --token $NOW_KOA_CONSULT_TOKEN && now alias --token $NOW_KOA_CONSULT_TOKEN && NOW_TOKEN=${NOW_KOA_CONSULT_TOKEN} now-pipeline-prune && now ls koaconsultco --token $NOW_KOA_CONSULT_TOKEN"
+    "deploy": "aws --profile koaconsult s3 sync . s3://koaconsult.co --exclude '.*' --exclude '*.json' --acl 'public-read'"
   },
   "author": "",
   "license": "ISC"
